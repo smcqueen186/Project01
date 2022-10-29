@@ -17,6 +17,7 @@ import static com.revature.project01.runners.BasicRunner.*;
 
 public class NavigationSteps {
 
+    // ALL LINKS VIABLE
     @Given("User is logging in as Manager")
     public void user_is_logging_in_as_manager() {
         BasicRunner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=20");
@@ -71,5 +72,42 @@ public class NavigationSteps {
     @Then("Manager navigates to a page displaying the title Defect Overview")
     public void manager_navigates_to_a_page_displaying_the_title_defect_overview() {
         BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//h1"), "Defect Overview"));
+    }
+
+    // BACK NAVIGATION
+    @When("Manager navigates to Matrices page")
+    public void manager_navigates_to_matrices_page() {
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Matrices')]")));
+        BasicRunner.managerHome.matricesLink.click();
+    }
+    @When("Manager clicks the browser back button")
+    public void manager_clicks_the_browser_back_button() throws InterruptedException {
+        Thread.sleep(500);
+        BasicRunner.driver.navigate().back();
+    }
+
+    @Then("Manager returns to the homepage")
+    public void manager_returns_to_the_homepage() {
+        BasicRunner.wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[contains(text(), 'Manager Home')]")));
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl, "https://bugcatcher-jasdhir.coe.revaturelabs.com/managerhome");
+    }
+
+    @When("Manager navigates to Test Cases page")
+    public void manager_navigates_to_test_cases_page() {
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Test Cases')]")));
+        BasicRunner.managerHome.testCasesLink.click();
+    }
+
+    @When("Manager navigates to Report a Defect page")
+    public void manager_navigates_to_report_a_defect_page() {
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'Report')]")));
+        managerHome.defectReporterLink.click();
+    }
+
+    @When("Manager navigates to Defect Overview page")
+    public void manager_navigates_to_defect_overview_page() {
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Defect Overview')]")));
+        managerHome.defectOverviewLink.click();
     }
 }

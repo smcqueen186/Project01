@@ -10,7 +10,7 @@ Feature: Navigation
     Then Manager navigates to a page displaying the title <title>
 
     Examples:
-      | link           | title                 |
+      | link           | title               |
       | Matrices       | Matrix Overview     |
       | Test Cases     | Test Case Overview  |
       | Report a Defect| Defect Reporter     |
@@ -19,14 +19,14 @@ Feature: Navigation
 
   Scenario Outline: Back Navigation
     Given Manager is on the homepage
-    When Manager clicks on <link>
-    Then Manager navigates to a page displaying the title: <title>
-    When Manager clicks the browser back button
+    And Manager clicks on <link>
+    When Manager navigates to <link> page
+    And Manager clicks the browser back button
     Then Manager returns to the homepage
 
     Examples:
-      | link             | title                 |
-      | "Matrices"       | "Matrix Overview"     |
-      | "Test Cases"     | "Test Case Overview"  |
-      | "Report a Defect"| "Defect Reporter"     |
-      | "Defect Overview"| "Defect Overview"     |
+      | link           |
+      | Matrices       |
+      | Test Cases     |
+      | Report a Defect|
+      | Defect Overview|
