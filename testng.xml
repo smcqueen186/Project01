@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Suites">
+    <test name="Login">
+        <classes>
+            <class name="com.revature.project01.runners.BasicRunner" />
+        </classes>
+    </test> <!-- Test -->
+    <test name="Navigation">
+        <classes>
+            <class name="com.revature.project01.runners.BasicRunner" />
+        </classes>
+    </test> <!-- Test -->
+
+</suite> <!-- Suite -->
