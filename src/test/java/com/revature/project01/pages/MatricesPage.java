@@ -19,16 +19,13 @@ public class MatricesPage {
     @FindBy(xpath = "//ul/li[2]/div/div/div/ul[2]/li/button[contains(text(), 'Add')]")
     public WebElement addDefectButton;
 
-    @FindBy(xpath = "//ul/li[2]/div//ul[1]/li/button[text()='Add']")
+    @FindBy(xpath = "//ul/li[2]/div/div//div/ul[1]/li/button[text()='Add']")
     public WebElement addTestCaseButton;
 
-    @FindBy(xpath = "//ul/li[2]/div//div/ul[2]/li[3]/button")
+    @FindBy(xpath = "//ul/li[2]/div/div//div/ul[2]/li[1]/button[1]")
     public WebElement removeDefectButton;
 
-    @FindBy(xpath = "//body[1]/div[1]/ul[1]/li[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/button[1]")
-    public WebElement addTestButton;
-
-    @FindBy(xpath = "//ul/li[2]/div//div/ul[1]/li[4]/button")
+    @FindBy(xpath = "//ul/li[2]/div/div//div/ul[1]/li[1]/button[1]")
     public WebElement removeTestButton;
 
     @FindBy(xpath = "//ul/li[2]/div/div//table//tr[2]//td[6]/button")

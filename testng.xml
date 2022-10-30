@@ -5,11 +5,16 @@
         <classes>
             <class name="com.revature.project01.runners.BasicRunner" />
         </classes>
-    </test> <!-- Test -->
+    </test>
     <test name="Navigation">
         <classes>
             <class name="com.revature.project01.runners.BasicRunner" />
         </classes>
-    </test> <!-- Test -->
+    </test>
+    <test name="Matrix">
+        <classes>
+            <class name="com.revature.project01.runners.BasicRunner" />
+        </classes>
+    </test>
 
-</suite> <!-- Suite -->
+</suite>

@@ -18,6 +18,7 @@ import static com.revature.project01.runners.BasicRunner.*;
 public class MatrixSteps {
 
     // CREATE MATRIX
+
     @Given("Manager logs into their homepage")
     public void manager_logs_into_their_homepage() {
         BasicRunner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=20");
@@ -37,7 +38,7 @@ public class MatrixSteps {
     }
     @When("Manager adds a title to the matrix")
     public void manager_adds_a_title_to_the_matrix() {
-        BasicRunner.managerHome.matrixTitleInput.sendKeys("New Requirements Traceability Matrix");
+        BasicRunner.managerHome.matrixTitleInput.sendKeys("New RTM 1000");
     }
     @When("Manager adds a user story")
     public void manager_adds_a_user_story() {
@@ -50,21 +51,17 @@ public class MatrixSteps {
     }
     @When("Manager adds a note")
     public void manager_adds_a_note() {
-        BasicRunner.managerHome.noteInput.sendKeys("This a note");
+        BasicRunner.managerHome.noteInput.sendKeys("This is a note");
     }
     @When("Manager adds requirements to the matrix")
     public void manager_adds_requirements_to_the_matrix() {
-        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//fieldset/button[contains(text(),'Add Requirement')]")));
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//fieldset/button[1][contains(text(),'Add Requirement')]")));
         BasicRunner.managerHome.addReqButton.click();
     }
     @When("Manager saves the matrix")
     public void manager_saves_the_matrix() throws InterruptedException {
-        Thread.sleep(1000);
-
-    }
-    @Then("Matrix is visible for all testers and managers")
-    public void matrix_is_visible_for_all_testers_and_managers() {
-        BasicRunner.wait.until(ExpectedConditions.alertIsPresent());
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//fieldset/button[1][contains(text(),'Add Requirement')]")));
+        BasicRunner.managerHome.createMatrixButton.click();
     }
 
     // ADD DEFECT
@@ -104,17 +101,23 @@ public class MatrixSteps {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[2]/div[1]/div[1]/div[1]/button")));
         BasicRunner.matricesPage.saveReqButton.click();
     }
+    @Then("Manager sees an alert stating {string}")
+    public void manager_sees_an_alert_stating(String expectedAlert) throws InterruptedException {
+        BasicRunner.wait.until(ExpectedConditions.alertIsPresent());
+        String actualAlert = BasicRunner.driver.switchTo().alert().getText();
+        Assert.assertEquals(actualAlert, "Matrix Saved");
+    }
 
     // ADD TEST CASE
 
     @When("Manager inputs an ID number of a test case")
     public void manager_inputs_an_id_number_of_a_test_case() {
-        BasicRunner.matricesPage.testCaseIdInput.sendKeys("444");
+        BasicRunner.matricesPage.testCaseIdInput.sendKeys("888");
 
     }
     @When("Manager clicks the add button to add the test case")
     public void manager_clicks_the_add_button_to_add_the_test_case() {
-        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[2]/div//ul[1]/li/button[text()='Add']")));
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[2]/div/div//div/ul[1]/li/button[text()='Add']")));
         matricesPage.addTestCaseButton.click();
 
     }
@@ -125,27 +128,27 @@ public class MatrixSteps {
     }
 
     // REMOVE DEFECT
-    @When("Manager clicks the Remove button to remove a defect")
-    public void manager_clicks_the_remove_button_to_remove_a_defect() {
-        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[2]/div//div/ul[2]/li[3]/button")));
+    @When("Manager clicks the remove button to remove the defect")
+    public void manager_clicks_the_remove_button_to_remove_the_defect() {
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[2]/div/div//div/ul[2]/li[1]/button[1]")));
         BasicRunner.matricesPage.removeDefectButton.click();
     }
-    @Then("The defect is removed from the list")
-    public void the_defect_is_removed_from_the_list() {
+    @Then("The defect is removed")
+    public void the_defect_is_removed() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[2]/div[1]/div[1]/div[1]/button")));
         BasicRunner.matricesPage.saveReqButton.click();
     }
-
 
     // REMOVE TEST CASE
-    @When("Manager clicks the Remove button to remove a test case")
-    public void manager_clicks_the_remove_button_to_remove_a_test_case() {
-        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[2]/div//div/ul[1]/li[4]/button")));
+    @When("Manager clicks the remove button to remove the test case")
+    public void manager_clicks_the_remove_button_to_remove_the_test_case() {
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[2]/div/div//div/ul[1]/li[1]/button[1]")));
         BasicRunner.matricesPage.removeTestButton.click();
     }
-    @Then("The test case is removed from the list")
-    public void the_test_case_is_removed_from_the_list() {
+    @Then("The test case is removed")
+    public void the_test_case_is_removed() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[2]/div[1]/div[1]/div[1]/button")));
         BasicRunner.matricesPage.saveReqButton.click();
     }
+
 }

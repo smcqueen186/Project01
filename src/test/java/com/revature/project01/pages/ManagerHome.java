@@ -40,7 +40,7 @@ public class ManagerHome {
     @FindBy(xpath = "//input[@placeholder='Note']")
     public WebElement noteInput;
 
-    @FindBy(xpath = "//fieldset/button[contains(text(),'Add Requirement')]")
+    @FindBy(xpath = "//fieldset/button[1][contains(text(),'Add Requirement')]")
     public WebElement addReqButton;
 
     @FindBy(xpath = "//button[contains(text(), 'Create Matrix')]")

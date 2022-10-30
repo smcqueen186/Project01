@@ -13,34 +13,47 @@ Feature: Matrix
     And Manager adds a user story
     And Manager selects a priority level
     And Manager adds a note
-    And Manager saves the matrix
-    Then Matrix is visible for all testers and managers
+    And Manager adds requirements to the matrix
+    Then Manager saves the matrix
 
-  Scenario Outline: Add Defects/Test Cases to Matrix
+  Scenario: Add Defects to Matrix
     Given Manager is on the homepage
     And Manager clicks on the Matrices link
     And Manager navigates to the Matrices page
     When Manager clicks the Show button to view details of a matrix
     And Manager clicks the edit button to a User Story
-    And Manager inputs an ID number of a <item>
-    And Manager clicks the add button to add the <item>
-    Then The <item> is added to the list
+    And Manager inputs an ID number of a defect
+    And Manager clicks the add button to add the defect
+    Then The defect is added to the list
+    And Manager sees an alert stating 'Matrix Saved'
 
-    Examples:
-    | item      |
-    | defect    |
-    | test case |
-
-  Scenario Outline: Remove Defects/Test Cases from Matrix
+  Scenario: Add Test Case to Matrix
     Given Manager is on the homepage
     And Manager clicks on the Matrices link
     And Manager navigates to the Matrices page
     When Manager clicks the Show button to view details of a matrix
-    And Manager clicks the Edit button for a User Story
-    And Manager clicks the Remove button to remove a <item>
-    Then The <item> is removed from the list
+    And Manager clicks the edit button to a User Story
+    And Manager inputs an ID number of a test case
+    And Manager clicks the add button to add the test case
+    Then The test case is added to the list
+    And Manager sees an alert stating 'Matrix Saved'
 
-    Examples:
-      | item      |
-      | defect    |
-      | test case |
+  Scenario: Remove Defect from Matrix
+    Given Manager is on the homepage
+    And Manager clicks on the Matrices link
+    And Manager navigates to the Matrices page
+    When Manager clicks the Show button to view details of a matrix
+    And Manager clicks the edit button to a User Story
+    And Manager clicks the remove button to remove the defect
+    Then The defect is removed
+    And Manager sees an alert stating 'Matrix Saved'
+
+  Scenario: Remove Test Case from Matrix
+    Given Manager is on the homepage
+    And Manager clicks on the Matrices link
+    And Manager navigates to the Matrices page
+    When Manager clicks the Show button to view details of a matrix
+    And Manager clicks the edit button to a User Story
+    And Manager clicks the remove button to remove the test case
+    Then The test case is removed
+    And Manager sees an alert stating 'Matrix Saved'
