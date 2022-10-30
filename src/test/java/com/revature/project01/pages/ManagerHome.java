@@ -19,16 +19,32 @@ public class ManagerHome {
     @FindBy(xpath="//a[contains(text(), 'Defect Overview')]")
     public WebElement defectOverviewLink;
 
+    @FindBy(xpath = "//nav/p")
+    public WebElement greeting;
 
-    @FindBy(xpath="//h1[contains(text(), 'Test Case')]")
-    public WebElement testCasePageTitle;
+    @FindBy(xpath = "//td/button[contains(text(), 'Select')]")
+    public WebElement defectSelectButton;
 
-    @FindBy(xpath="//h1[contains(text(), 'Defect Reporter')]")
-    public WebElement defectReporterPageTitle;
+    @FindBy(xpath = "//button[contains(text(), 'Create A new Requirements Matrix')]")
+    public WebElement matrixFormButton;
 
-    @FindBy(xpath="//h1[contains(text(), 'Defect Overview')]")
-    public WebElement defectOverviewPageTitle;
+    @FindBy(xpath = "//h2[(text()='New matrix')]")
+    public WebElement matrixTitle;
 
+    @FindBy(xpath = "//input[@name='title']")
+    public WebElement matrixTitleInput;
+
+    @FindBy(xpath = "//input[@placeholder='User Story']")
+    public WebElement userStoryInput;
+
+    @FindBy(xpath = "//input[@placeholder='Note']")
+    public WebElement noteInput;
+
+    @FindBy(xpath = "//fieldset/button[contains(text(),'Add Requirement')]")
+    public WebElement addReqButton;
+
+    @FindBy(xpath = "//button[contains(text(), 'Create Matrix')]")
+    public WebElement createMatrixButton;
 
     public ManagerHome(WebDriver driver) {
         PageFactory.initElements(driver, this);

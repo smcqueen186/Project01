@@ -1,4 +1,4 @@
-package com.revature.project01.stepimplementations;
+package com.revature.project01.stepimplementations.navigation;
 
 import com.revature.project01.runners.BasicRunner;
 import io.cucumber.java.en.Given;
@@ -82,7 +82,7 @@ public class NavigationSteps {
     }
     @When("Manager clicks the browser back button")
     public void manager_clicks_the_browser_back_button() throws InterruptedException {
-        Thread.sleep(500);
+        Thread.sleep(1000);
         BasicRunner.driver.navigate().back();
     }
 
