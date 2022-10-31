@@ -15,7 +15,4 @@ Feature: Assign Defect
       And Manager clicks the assign button
       Then The defect is assigned to the tester
 
-    Scenario: Tester can view the defect
-      Given Tester is logged in as a tester
-      When Tester is on the homepage
-      Then Tester should see the pending defect assigned to them
+

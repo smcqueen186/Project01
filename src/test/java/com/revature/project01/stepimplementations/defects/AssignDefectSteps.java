@@ -53,23 +53,6 @@ public class AssignDefectSteps {
     public void the_defect_is_assigned_to_the_tester() {
     }
 
-    // TESTER VIEW
-    @Given("Tester is logged in as a tester")
-    public void tester_is_logged_in_as_a_tester() {driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=20");
-        BasicRunner.loginPage.usernameInput.sendKeys("");
-        BasicRunner.loginPage.passwordInput.sendKeys("chomp!");
-        BasicRunner.loginPage.loginButton.click();
 
-    }
-    @When("Tester is on the homepage")
-    public void tester_is_on_the_homepage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-    @Then("Tester should see the pending defect assigned to them")
-    public void tester_should_see_the_pending_defect_assigned_to_them() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
 }
