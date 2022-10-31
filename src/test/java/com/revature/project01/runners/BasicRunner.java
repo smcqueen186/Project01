@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-@CucumberOptions(features = "src/test/resources/features", glue = "com.revature.project01.stepimplementations", tags = "@reportdefect")
+@CucumberOptions(features = "src/test/resources/features", glue = "com.revature.project01.stepimplementations", tags = "@reportdefectpos")
 public class BasicRunner extends AbstractTestNGCucumberTests {
     public static WebDriver driver;
     public static LoginPage loginPage;

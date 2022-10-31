@@ -1,6 +1,6 @@
-@reportdefect
+@reportdefectpos
 
-Feature: Report a Defect
+Feature: Report a Defect Positive
 
     Background: User logs in
       Given User is on the login page
