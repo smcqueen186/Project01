@@ -7,7 +7,7 @@ Feature: Defect Status
     When Tester types in a username of "username"
     And Tester types in a password of "password"
     And Tester clicks the login button
-    Then Tester should be redirected to the homepage
+    Then Tester is on the homepage
 
   Scenario: Tester can view the defect
     When Tester is on the homepage

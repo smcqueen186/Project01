@@ -37,9 +37,9 @@ public class DefectStatusSteps {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Login')]")));
         BasicRunner.loginPage.loginButton.click();
     }
-    @Then("Tester should be redirected to the homepage")
-    public void tester_should_be_redirected_to_the_homepage() throws InterruptedException {
-        Thread.sleep(10000);
+    @Given("Tester is on the homepage")
+    public void tester_is_on_the_homepage() throws InterruptedException {
+        Thread.sleep(1000);
         String actualUrl = BasicRunner.driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, "https://bugcatcher-jasdhir.coe.revaturelabs.com/testerhome");
     }
@@ -49,14 +49,6 @@ public class DefectStatusSteps {
     }
 
     // CHANGE DEFECT STATUS
-    @Given("Tester is on the homepage")
-    public void tester_is_on_the_homepage() {
-        driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=20");
-        BasicRunner.loginPage.usernameInput.sendKeys("ryeGuy");
-        BasicRunner.loginPage.passwordInput.sendKeys("coolbeans");
-        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Login')]")));
-        BasicRunner.loginPage.loginButton.click();
-    }
     @When("Tester clicks on a defect to view its details")
     public void tester_clicks_on_a_defect_to_view_its_details() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[6]/div/span/p")));
@@ -70,7 +62,7 @@ public class DefectStatusSteps {
     @When("Tester clicks the Accepted button")
     public void tester_clicks_the_accepted_button() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[6]/div/div//div/button[1]")));
-        BasicRunner.testerHome.changeStatusButton.click();
+        BasicRunner.testerHome.acceptedButton.click();
     }
     @Then("Tester should see the defect has a different status")
     public void tester_should_see_the_defect_has_a_different_status() {
