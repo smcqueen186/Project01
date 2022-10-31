@@ -1,10 +1,7 @@
 package com.revature.project01.runners;
 
-import com.revature.project01.pages.LoginPage;
+import com.revature.project01.pages.*;
 
-import com.revature.project01.pages.ManagerHome;
-import com.revature.project01.pages.MatricesPage;
-import com.revature.project01.pages.TesterHome;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -19,13 +16,14 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-@CucumberOptions(features = "src/test/resources/features", glue = "com.revature.project01.stepimplementations", tags = "@defectstat")
+@CucumberOptions(features = "src/test/resources/features", glue = "com.revature.project01.stepimplementations", tags = "@reportdefect")
 public class BasicRunner extends AbstractTestNGCucumberTests {
     public static WebDriver driver;
     public static LoginPage loginPage;
     public static ManagerHome managerHome;
     public static MatricesPage matricesPage;
     public static TesterHome testerHome;
+    public static DefectReportPage defectReportPage;
     public static WebDriverWait wait;
 
     @BeforeMethod
@@ -41,6 +39,8 @@ public class BasicRunner extends AbstractTestNGCucumberTests {
         matricesPage = new MatricesPage(driver);
 
         testerHome = new TesterHome(driver);
+
+        defectReportPage = new DefectReportPage(driver);
     }
 
     @AfterMethod

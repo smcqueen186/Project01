@@ -51,6 +51,7 @@ public class AssignDefectSteps {
     }
     @Then("The defect is assigned to the tester")
     public void the_defect_is_assigned_to_the_tester() {
+        // Tester will manually check their homepage for the newly assigned defect
     }
 
 
