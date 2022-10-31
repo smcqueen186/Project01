@@ -19,6 +19,18 @@ public class TesterHome {
     @FindBy(xpath = "//ul/li[6]/div/div//div/button[1]")
     public WebElement acceptedButton;
 
+    @FindBy(xpath = "//ul/li[6]/div/div//div/button[2]")
+    public WebElement rejectedButton;
+
+    @FindBy(xpath = "//ul/li[6]/div/div//div/button[3]")
+    public WebElement fixedButton;
+
+    @FindBy(xpath = "//ul/li[6]/div/div//div/button[4]")
+    public WebElement declinedButton;
+
+    @FindBy(xpath = "//ul/li[6]/div/div//div/button[5]")
+    public WebElement shelvedButton;
+
     @FindBy(xpath = "//table//tr[2]/td[4]/button")
     public WebElement testCaseDetailsButton;
 

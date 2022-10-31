@@ -14,9 +14,17 @@ Feature: Defect Status
     Then Tester should see the pending defects assigned to them
 
 
-  Scenario: Change Defect Status
+  Scenario Outline: Change Defect Status
     When Tester is on the homepage
     And Tester clicks on a defect to view its details
     And Tester clicks the Change Status button
-    And Tester clicks the Accepted button
-    Then Tester should see the defect has a different status
+    And Tester clicks the <status> button
+    Then Tester should see the defect status is <status>
+
+    Examples:
+    | status   |
+    | Accepted |
+    | Rejected |
+    | Fixed    |
+    | Declined |
+    | Shelved  |
