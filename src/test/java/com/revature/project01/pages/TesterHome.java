@@ -10,7 +10,7 @@ public class TesterHome {
     @FindBy(xpath = "//h3[text()='My Defects']")
     public WebElement testerDefects;
 
-    @FindBy(xpath = "//ul/li[6]/span")
+    @FindBy(xpath = "//ul/li[6]/div/span/p")
     public WebElement testerDefectSpan; // 6th defect in the list
 
     @FindBy(xpath = "//ul/li[6]/div/div//div[1]/span")

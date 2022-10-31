@@ -29,7 +29,6 @@ public class DefectStatusSteps {
     }
     @When("Tester types in a password of {string}")
     public void tester_types_in_a_password_of(String string) {
-
         BasicRunner.loginPage.passwordInput.sendKeys("coolbeans");
     }
     @When("Tester clicks the login button")
@@ -60,7 +59,7 @@ public class DefectStatusSteps {
     }
     @When("Tester clicks on a defect to view its details")
     public void tester_clicks_on_a_defect_to_view_its_details() {
-        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[6]/span")));
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul/li[6]/div/span/p")));
         BasicRunner.testerHome.testerDefectSpan.click();
     }
     @When("Tester clicks the Change Status button")
