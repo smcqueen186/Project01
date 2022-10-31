@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ManagerHome {
 
+    // Navigation Links
     @FindBy(xpath="//a[contains(text(), 'Matrices')]")
     public WebElement matricesLink;
 
@@ -22,9 +23,7 @@ public class ManagerHome {
     @FindBy(xpath = "//nav/p")
     public WebElement greeting;
 
-    @FindBy(xpath = "//td/button[contains(text(), 'Select')]")
-    public WebElement defectSelectButton;
-
+    // Create matrix
     @FindBy(xpath = "//button[contains(text(), 'Create A new Requirements Matrix')]")
     public WebElement matrixFormButton;
 
@@ -45,6 +44,25 @@ public class ManagerHome {
 
     @FindBy(xpath = "//button[contains(text(), 'Create Matrix')]")
     public WebElement createMatrixButton;
+
+    // Pending Defects
+    @FindBy(xpath = "//tr[2]/td/button[contains(text(), 'Select')]")
+    public WebElement defectSelectButton;
+
+    @FindBy(xpath = "//div/div[1]/h4")
+    public WebElement defectDescription;
+
+    @FindBy(xpath = "//div/div[1]/input")
+    public WebElement assignDefectInput;
+
+    @FindBy(xpath = "//datalist[@id='employees']")
+    public WebElement assignDefectDropDown;
+
+    @FindBy(xpath = "//datalist/option[contains(text(), 'ryeGuy')]")
+    public WebElement ryeGuySelect;
+
+    @FindBy(xpath = "//div/button[text()='Assign']")
+    public WebElement assignButton;
 
     public ManagerHome(WebDriver driver) {
         PageFactory.initElements(driver, this);
