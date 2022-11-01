@@ -13,7 +13,7 @@ import org.testng.Assert;
 
 import static com.revature.project01.runners.BasicRunner.*;
 
-public class PositiveReportDefectSteps {
+public class ReportDefectSteps {
     Actions action = new Actions(driver);
 
     @Given("User is on the login page")
@@ -85,8 +85,19 @@ public class PositiveReportDefectSteps {
         BasicRunner.defectReportPage.modalCloseButton.click();
     }
     @Then("The modal should disappear")
-    public void the_modal_should_disappear() throws InterruptedException {
+    public void the_modal_should_disappear() {
         // Manually watch modal disappear
     }
-
+    @When("User types short amount in the Description box with {string}")
+    public void user_types_short_amount_in_the_description_box_with(String string) {
+        BasicRunner.defectReportPage.descriptionInput.sendKeys("meh");
+    }
+    @Then("No confirmation box appears")
+    public void no_confirmation_box_appears() {
+        // Manually watch the page for a pop-up to be displayed
+    }
+    @When("User types short amount in the How to Reproduce box with {string}")
+    public void user_types_short_amount_in_the_how_to_reproduce_box_with(String string) {
+        BasicRunner.defectReportPage.stepsInput.sendKeys("meh");
+    }
 }

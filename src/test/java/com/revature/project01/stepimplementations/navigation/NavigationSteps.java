@@ -57,7 +57,7 @@ public class NavigationSteps {
     @When("Manager clicks on Report a Defect")
     public void manager_clicks_on_report_a_defect() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'Report')]")));
-        managerHome.defectReporterLink.click();
+        BasicRunner.managerHome.defectReporterLink.click();
     }
     @Then("Manager navigates to a page displaying the title Defect Reporter")
     public void manager_navigates_to_a_page_displaying_the_title_defect_reporter() {
@@ -67,7 +67,7 @@ public class NavigationSteps {
     @When("Manager clicks on Defect Overview")
     public void manager_clicks_on_defect_overview() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Defect Overview')]")));
-        managerHome.defectOverviewLink.click();
+        BasicRunner.managerHome.defectOverviewLink.click();
     }
     @Then("Manager navigates to a page displaying the title Defect Overview")
     public void manager_navigates_to_a_page_displaying_the_title_defect_overview() {
@@ -102,12 +102,12 @@ public class NavigationSteps {
     @When("Manager navigates to Report a Defect page")
     public void manager_navigates_to_report_a_defect_page() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(), 'Report')]")));
-        managerHome.defectReporterLink.click();
+        BasicRunner.managerHome.defectReporterLink.click();
     }
 
     @When("Manager navigates to Defect Overview page")
     public void manager_navigates_to_defect_overview_page() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Defect Overview')]")));
-        managerHome.defectOverviewLink.click();
+        BasicRunner.managerHome.defectOverviewLink.click();
     }
 }
