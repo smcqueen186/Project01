@@ -19,8 +19,11 @@ public class TestCasePage {
     @FindBy(xpath = "//form//button[@type='submit']")
     public WebElement testCaseSubmitButton;
 
-    @FindBy(xpath = "//table//tr[2]/td[4]/button[text()='Details']")
+    @FindBy(xpath = "//table//tr[5]/td[4]/button[text()='Details']")
     public WebElement testCaseDetailsButton;
+
+    @FindBy(xpath = "//div//div/div[@role='dialog']")
+    public WebElement modalWindow;
 
     @FindBy(xpath = "//div//div/div/h3")
     public WebElement caseIdDisplay; // MODAL
