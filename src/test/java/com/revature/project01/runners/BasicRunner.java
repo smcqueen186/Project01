@@ -24,6 +24,8 @@ public class BasicRunner extends AbstractTestNGCucumberTests {
     public static MatricesPage matricesPage;
     public static TesterHome testerHome;
     public static DefectReportPage defectReportPage;
+    public static TestCasePage testCasePage;
+    public static CaseEditorPage caseEditorPage;
     public static WebDriverWait wait;
 
     @BeforeMethod
@@ -41,6 +43,10 @@ public class BasicRunner extends AbstractTestNGCucumberTests {
         testerHome = new TesterHome(driver);
 
         defectReportPage = new DefectReportPage(driver);
+
+        testCasePage = new TestCasePage(driver);
+
+        caseEditorPage = new CaseEditorPage(driver);
     }
 
     @AfterMethod
