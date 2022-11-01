@@ -26,10 +26,10 @@ Feature: Test Cases
 
     Scenario: Edit Existing Case
       Given Tester navigates to the Test Cases page
-      When Tester clicks on Details button of a test case
+      When Tester clicks on Details button of 5th test case
       And The test case modal appears displaying the case ID
       And Tester clicks on the Edit button within the modal
-      And Tester navigates to the case editor
+      And Tester navigates to the 5th test case editor
       And The fields are uneditable
       And Tester clicks on the Edit button
       And The test case fields become editable
@@ -43,7 +43,7 @@ Feature: Test Cases
       And A confirmation prompt appears saying 'Are you sure you want to update the test case?'
       And Tester clicks Ok
       Then An alert appears saying 'Test Case has been Saved'
-      And Test clicks Ok
+      And Tester clicks Ok
       And The fields become uneditable
 
     Scenario: Reset Test Case
@@ -51,7 +51,7 @@ Feature: Test Cases
       When Tester clicks on Details button of a test case
       And The test case modal appears displaying the case ID
       And Tester clicks on the Edit button within the modal
-      And Tester navigates to the case editor
+      And Tester navigates to the 6th test case editor
       And The fields are uneditable
       And Tester clicks on the Edit button
       And The test case fields become editable

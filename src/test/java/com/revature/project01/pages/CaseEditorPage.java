@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CaseEditorPage {
 
-    @FindBy(xpath = "//fieldset/textarea[1]")
+    @FindBy(xpath = "//textarea[contains(text(),'Verify')]")
     public WebElement caseEditorDescriptionInput;
 
-    @FindBy(xpath = "//fieldset/textarea[2]")
+    @FindBy(xpath = "//fieldset[1]/textarea[2]")
     public WebElement caseEditorStepsInput;
 
     @FindBy(xpath = "//fieldset[1]/input[@type='checkbox']")
