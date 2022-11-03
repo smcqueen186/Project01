@@ -19,6 +19,9 @@ public class TestCasePage {
     @FindBy(xpath = "//form//button[@type='submit']")
     public WebElement testCaseSubmitButton;
 
+    @FindBy(xpath = "//table//tr[7]/td[4]/button[text()='Details']")
+    public WebElement testCase7DetailsButton;
+
     @FindBy(xpath = "//table//tr[6]/td[4]/button[text()='Details']")
     public WebElement testCaseDetailsButton;
 

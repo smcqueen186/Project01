@@ -127,8 +127,8 @@ public class TestCaseSteps {
         Select testResult = new Select(driver.findElement(By.xpath("//fieldset[2]/select")));
         testResult.selectByVisibleText("FAIL");
     }
-    @When("Tester edits the text in the Summary text box")
-    public void tester_edits_the_text_in_the_summary_text_box() {
+    @When("Tester edits the text in the Summary text box for 5th test case")
+    public void tester_edits_the_text_in_the_summary_text_box_for_5th_test_case() {
         BasicRunner.caseEditorPage.caseEditSummaryInput.sendKeys("This test case has failed");
     }
     @When("Tester clicks the Save button")
@@ -157,6 +157,33 @@ public class TestCaseSteps {
     public void the_fields_become_uneditable() {
         boolean editStatus = BasicRunner.caseEditorPage.caseEditorDescriptionInput.isEnabled();
         boolean isDisabled = editStatus != true;
+    }
+    @Then("The test result displays FAIL for 5th test case")
+    public void the_test_result_displays_fail_for_the_5th_test_case() {
+        BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//fieldset[2]/p[1]"), "FAIL"));
+    }
+    @When("Tester clicks on Details button of 7th test case")
+    public void tester_clicks_on_details_button_of_7th_test_case() {
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table//tr[7]/td[4]/button[text()='Details']")));
+        BasicRunner.testCasePage.testCase7DetailsButton.click();
+    }
+    @When("Tester navigates to the 7th test case editor")
+    public void tester_navigates_to_the_7th_test_case_editor() {
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl, "https://bugcatcher-jasdhir.coe.revaturelabs.com/caseeditor/78218");
+    }
+    @When("Tester selects PASS from Test Result drop down")
+    public void tester_selects_pass_from_test_result_drop_down() {
+        Select testResult = new Select(driver.findElement(By.xpath("//fieldset[2]/select")));
+        testResult.selectByVisibleText("PASS");
+    }
+    @When("Tester edits the text in the Summary text box for 7th test case")
+    public void tester_edits_the_text_in_the_summary_text_box_for_7th_test_case() {
+        BasicRunner.caseEditorPage.caseEditSummaryInput.sendKeys("This test case has passed");
+    }
+    @Then("The test result displays PASS for 7th test case")
+    public void the_test_result_displays_pass_for_the_7th_test_case() {
+        BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//fieldset[2]/p[1]"), "PASS"));
     }
 
     // RESET TEST CASE
