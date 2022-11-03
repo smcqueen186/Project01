@@ -14,5 +14,6 @@ Feature: Assign Defect
       And Manager selects a tester from the drop down
       And Manager clicks the assign button
       Then The defect is assigned to the tester
+      And The defect disappears from the list on the homepage
 
 

@@ -2,7 +2,7 @@
 
 Feature: Report a Defect Positive
 
-    Background: User logs in
+    Background: User Logs in
       Given User is on the login page
       When User types in a username of "username"
       And User types in a password of "password"
@@ -22,7 +22,7 @@ Feature: Report a Defect Positive
     And User clicks close
     Then The modal should disappear
 
-  Scenario: Description too short
+  Scenario: Description Too Short
     Given User navigates to the Defect Reporter page
     When User selects a date
     And User types short amount in the Description box with "description"
@@ -33,7 +33,7 @@ Feature: Report a Defect Positive
     Then No confirmation box appears
 
 
-  Scenario: Steps too short
+  Scenario: Steps Too Short
     Given User navigates to the Defect Reporter page
     When User selects a date
     And User types in the Description box with "description"
@@ -43,7 +43,7 @@ Feature: Report a Defect Positive
     And User clicks the Report button
     Then No confirmation box appears
 
-  Scenario: No date selected
+  Scenario: No Date Selected
     Given User navigates to the Defect Reporter page
     And User types in the Description box with "description"
     And User types in the How to Reproduce box with "steps"

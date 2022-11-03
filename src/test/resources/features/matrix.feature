@@ -2,7 +2,7 @@
 
 Feature: Matrix
 
-  Background: User logging in as Manager
+  Background: User Logging in as Manager
     Given User is logging in as Manager
 
   Scenario: Create a New Matrix

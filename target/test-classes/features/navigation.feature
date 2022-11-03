@@ -4,6 +4,8 @@ Feature: Navigation
   Background: User logging in as Manager
     Given User is logging in as Manager
 
+    Scenario: All Links Visible
+
   Scenario Outline: All Links Viable
     Given Manager is on the homepage
     When Manager clicks on <link>

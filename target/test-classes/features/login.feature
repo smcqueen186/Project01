@@ -1,27 +1,49 @@
+@login
+
 Feature: Login
 
-  Scenario: Valid login credentials
+  Scenario Outline: Valid Login Credentials
     Given User is at the login page
-    When User types in a valid username of "username"
-    And User types in a valid password of "password"
+    When User types in a valid username of <username>
+    And User types in a valid password of <password>
     And User clicks the login button
-    Then User should be redirected to the homepage
+    Then User should be redirected to the <role> homepage
 
-  Scenario: Valid username, invalid password
+    Examples:
+      | username   |  password  | role    |
+      | g8tor      |  chomp!    | Manager |
+      | ryeGuy     |  coolbeans | Tester  |
+      | cavalier89 |  alucard   | Tester  |
+
+  Scenario Outline: Login Greeting
+    Given User is at the login page
+    When User types in a valid username of <username>
+    And User types in a valid password of <password>
+    And User clicks the login button
+    Then User should be redirected to the <role> homepage
+    And User sees greeting message displaying Welcome <firstname> <lastname>
+
+    Examples:
+      | username   |  password  | role    | firstname | lastname  |
+      | g8tor      |  chomp!    | Manager | Patty     | Pastiche  |
+      | ryeGuy     |  coolbeans | Tester  | Fakey     | McFakeFace|
+      | cavalier89 |  alucard   | Tester  | Dracula   | Fangs     |
+
+  Scenario Outline: Valid Username, Invalid Password
     Given User is at the login page
     When User types in a valid username of "username"
     And User types in an invalid password of "password"
     And User clicks the login button
     Then User should see an alert for invalid password stating 'Wrong password for user'
 
-  Scenario: Invalid username, valid password
+  Scenario: Invalid Username, Valid Password
     Given User is at the login page
     When User types in an invalid username of "username"
     And User types in a valid password of "password"
     And User clicks the login button
     Then User should see an alert for invalid username stating 'Username not found'
 
-  Scenario: Invalid login credentials
+  Scenario: Invalid Login Credentials
     Given User is at the login page
     When User types in an invalid username of "username"
     And User types in an invalid password of "password"

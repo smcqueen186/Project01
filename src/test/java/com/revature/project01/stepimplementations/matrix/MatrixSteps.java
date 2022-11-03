@@ -38,11 +38,11 @@ public class MatrixSteps {
     }
     @When("Manager adds a title to the matrix")
     public void manager_adds_a_title_to_the_matrix() {
-        BasicRunner.managerHome.matrixTitleInput.sendKeys("New RTM 1000");
+        BasicRunner.managerHome.matrixTitleInput.sendKeys("New RTM 2000");
     }
     @When("Manager adds a user story")
     public void manager_adds_a_user_story() {
-        BasicRunner.managerHome.userStoryInput.sendKeys("This is a new matrix created to test the site's ability to create matrices.");
+        BasicRunner.managerHome.userStoryInput.sendKeys("New matrix");
     }
     @When("Manager selects a priority level")
     public void manager_selects_a_priority_level() {
