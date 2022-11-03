@@ -5,10 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.logging.XMLFormatter;
+
 public class TesterHome {
 
     @FindBy(xpath = "//h1")
     public WebElement testerHomeTitle;
+
+    @FindBy(xpath = "//nav/a[text()='Home']")
+    public WebElement homeLink;
 
     @FindBy(xpath="//a[1]")
     public WebElement matricesLink;

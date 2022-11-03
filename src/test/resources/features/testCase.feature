@@ -36,7 +36,7 @@ Feature: Test Cases
       And Tester edits the text in the Description text box
       And Tester edits the text in the Steps text box
       And Tester clicks on the automated check mark
-      And Tester selects ryeGuy from Performed By drop down
+      And Tester selects cavalier89 from Performed By drop down
       And Tester selects <result> from Test Result drop down
       And Tester edits the text in the Summary text box for <nth> test case
       And Tester clicks the Save button
@@ -53,7 +53,23 @@ Feature: Test Cases
       | 5th | FAIL  |
       | 7th | PASS  |
 
-
+  Scenario: Test Case Visible on Tester Homepage
+  Given Tester navigates to the Test Cases page
+    When Tester clicks on Details button of 7th test case
+    And The test case modal appears displaying the case ID
+    And Tester clicks on the Edit button within the modal
+    And Tester navigates to the 7th test case editor
+    And The fields are uneditable
+    And Tester clicks on the Edit button
+    And The test case fields become editable
+    And Tester selects ryeGuy from Performed By drop down
+    And Tester clicks the Save button
+    And A confirmation prompt appears saying 'Are you sure you want to update the test case?'
+    And Tester clicks Ok
+    And An alert appears saying 'Test Case has been Saved'
+    And Tester clicks Ok
+    Then Tester clicks Home link to navigate to the homepage
+    And The test case appears on Fakey McFakeFace's homepage
 
     Scenario: Reset Test Case
       Given Tester navigates to the Test Cases page

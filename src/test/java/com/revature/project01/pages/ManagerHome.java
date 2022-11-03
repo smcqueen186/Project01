@@ -10,6 +10,9 @@ public class ManagerHome {
     @FindBy(xpath = "//h1")
     public WebElement managerHomeTitle;
 
+    @FindBy(xpath = "//nav/a[text()='Home']")
+    public WebElement homeLink;
+
     @FindBy(xpath="//a[1]")
     public WebElement matricesLink;
 

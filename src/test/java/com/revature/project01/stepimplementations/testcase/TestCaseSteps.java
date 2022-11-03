@@ -31,16 +31,16 @@ public class TestCaseSteps {
     @When("Tester presses the submit button")
     public void tester_presses_the_submit_button() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//form//button[@type='submit']")));
-        BasicRunner.testCasePage.testCaseSubmitButton.click();
+        //BasicRunner.testCasePage.testCaseSubmitButton.click();
     }
     @Then("The test case should appear at the bottom of the table")
     public void the_test_case_should_appear_at_the_bottom_of_the_table() {
         BasicRunner.wait.until(ExpectedConditions
-                .textToBePresentInElementLocated(By.xpath("//table/tbody"), "NEW TEST CASE 2000"));
+                .textToBePresentInElementLocated(By.xpath("//table/tbody"), "NEW TEST CASE 1000"));
     }
     @Then("The test case result should say {string}")
     public void the_test_case_result_should_say(String string) {
-        BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//table//tr[9]/td[3]"), "UNEXECUTED"));
+        BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//table//tr[8]/td[3]"), "UNEXECUTED"));
     }
 
     // VIEW TEST CASE DETAILS
@@ -98,7 +98,7 @@ public class TestCaseSteps {
     }
     @When("The test case fields become editable")
     public void the_test_case_fields_become_editable() {
-
+        // Manually check that fields are editable
     }
     @When("Tester edits the text in the Description text box")
     public void tester_edits_the_text_in_the_description_text_box() {
@@ -113,10 +113,10 @@ public class TestCaseSteps {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//fieldset[1]/input[@type='checkbox']")));
         BasicRunner.caseEditorPage.automatedCheckBox.click();
     }
-    @When("Tester selects ryeGuy from Performed By drop down")
+    @When("Tester selects cavalier89 from Performed By drop down")
     public void tester_selects_rye_guy_from_performed_by_drop_down() {
         Select performedBy = new Select(driver.findElement(By.xpath("//fieldset[1]//select")));
-        performedBy.selectByVisibleText("ryeGuy");
+        performedBy.selectByVisibleText("cavalier89");
 
     }
     @When("Tester selects FLAKY from Test Result drop down")
@@ -211,6 +211,23 @@ public class TestCaseSteps {
         BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//fieldset[2]/p[1]"), "PASS"));
     }
 
+    // TEST CASE VISIBLE ON TESTERS HOMEPAGE
+
+    @When("Tester selects ryeGuy from Performed By drop down")
+    public void tester_selects_cavalier89_from_performed_by_drop_down() {
+        Select performedBy = new Select(driver.findElement(By.xpath("//fieldset[1]//select")));
+        performedBy.selectByVisibleText("ryeGuy");
+    }
+    @Then("Tester clicks Home link to navigate to the homepage")
+    public void tester_clicks_home_link_to_navigate_to_the_homepage() {
+        BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//nav/a[text()='Home']")));
+        BasicRunner.testerHome.homeLink.click();
+    }
+    @Then("The test case appears on Fakey McFakeFace's homepage")
+    public void the_test_case_appears_on_fakey_mc_fake_face_s_homepage() {
+       BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//nav/p"), "Welcome Fakey McFakeFace"));
+       BasicRunner.wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//div//tbody"), "This is a test case for the thing"));
+    }
     // RESET TEST CASE
 
     @When("Tester navigates to the 6th test case editor")
