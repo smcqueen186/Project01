@@ -17,7 +17,6 @@ import static com.revature.project01.runners.BasicRunner.*;
 
 public class NavigationSteps {
 
-    // ALL LINKS VIABLE
     @Given("User is logging in as Manager")
     public void user_is_logging_in_as_manager() {
         BasicRunner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=20");
@@ -109,5 +108,35 @@ public class NavigationSteps {
     public void manager_navigates_to_defect_overview_page() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Defect Overview')]")));
         BasicRunner.managerHome.defectOverviewLink.click();
+    }
+
+    @When("Manager clicks the browser refresh button")
+    public void manager_clicks_the_browser_refresh_button() throws InterruptedException {
+        Thread.sleep(1000);
+        BasicRunner.driver.navigate().refresh();
+    }
+    @Then("Manager refreshes the Matrices page")
+    public void manager_refreshes_the_matrices_page() {
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl, "https://bugcatcher-jasdhir.coe.revaturelabs.com/matrices");
+        BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//h1"), "Matrices"));
+    }
+    @Then("Manager refreshes the Test Cases page")
+    public void manager_refreshes_the_test_cases_page() {
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl, "https://bugcatcher-jasdhir.coe.revaturelabs.com/testcases");
+        BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//h1"), "Test Case Dashboard"));
+    }
+    @Then("Manager refreshes the Report a Defect page")
+    public void manager_refreshes_the_report_a_defect_page() {
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl, "https://bugcatcher-jasdhir.coe.revaturelabs.com/defectreporter");
+        BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//h1"), "Defect Reporter"));
+    }
+    @Then("Manager refreshes the Defect Overview page")
+    public void manager_refreshes_the_defect_overview_age() {
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl, "https://bugcatcher-jasdhir.coe.revaturelabs.com/defectoverview");
+        BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//h1"), "Defect Overview"));
     }
 }

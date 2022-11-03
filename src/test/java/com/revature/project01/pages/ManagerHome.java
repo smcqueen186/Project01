@@ -7,17 +7,19 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ManagerHome {
 
-    // Navigation Links
-    @FindBy(xpath="//a[contains(text(), 'Matrices')]")
+    @FindBy(xpath = "//h1")
+    public WebElement managerHomeTitle;
+
+    @FindBy(xpath="//a[1]")
     public WebElement matricesLink;
 
-    @FindBy(xpath="//a[contains(text(), 'Test Cases')]")
+    @FindBy(xpath="//a[2]")
     public WebElement testCasesLink;
 
-    @FindBy(xpath="//a[contains(text(), 'Report a Defect')]")
+    @FindBy(xpath="//a[3]")
     public WebElement defectReporterLink;
 
-    @FindBy(xpath="//a[contains(text(), 'Defect Overview')]")
+    @FindBy(xpath="//a[4]")
     public WebElement defectOverviewLink;
 
     @FindBy(xpath = "//nav/p")

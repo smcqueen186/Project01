@@ -1,10 +1,9 @@
 @navi
+
 Feature: Navigation
 
   Background: User logging in as Manager
     Given User is logging in as Manager
-
-    Scenario: All Links Visible
 
   Scenario Outline: All Links Viable
     Given Manager is on the homepage
@@ -32,3 +31,18 @@ Feature: Navigation
       | Test Cases     |
       | Report a Defect|
       | Defect Overview|
+
+  Scenario Outline: Page Refresh
+    Given Manager is on the homepage
+    And Manager clicks on <link>
+    When Manager navigates to <link> page
+    And Manager clicks the browser refresh button
+    Then Manager refreshes the <link> page
+
+    Examples:
+      | link           |
+      | Matrices       |
+      | Test Cases     |
+      | Report a Defect|
+      | Defect Overview|
+

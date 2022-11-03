@@ -29,7 +29,7 @@ Feature: Login
       | ryeGuy     |  coolbeans | Tester  | Fakey     | McFakeFace|
       | cavalier89 |  alucard   | Tester  | Dracula   | Fangs     |
 
-  Scenario Outline: Valid Username, Invalid Password
+  Scenario: Valid Username, Invalid Password
     Given User is at the login page
     When User types in a valid username of "username"
     And User types in an invalid password of "password"
