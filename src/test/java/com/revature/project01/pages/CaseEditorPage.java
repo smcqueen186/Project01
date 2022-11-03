@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CaseEditorPage {
 
-    @FindBy(xpath = "//textarea[contains(text(),'Verify')]")
+    @FindBy(xpath = "//fieldset[1]/textarea[1]")
     public WebElement caseEditorDescriptionInput;
 
     @FindBy(xpath = "//fieldset[1]/textarea[2]")

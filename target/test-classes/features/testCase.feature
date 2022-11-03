@@ -49,6 +49,7 @@ Feature: Test Cases
 
       Examples:
       | nth | result|
+      | 3rd | FLAKY |
       | 5th | FAIL  |
       | 7th | PASS  |
 

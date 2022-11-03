@@ -29,6 +29,9 @@ public class TestCasePage {
     public WebElement testCase5DetailsButton;
 
     @FindBy(xpath = "//table//tr[3]/td[4]/button[text()='Details']")
+    public WebElement testCase3DetailsButton;
+
+    @FindBy(xpath = "//table//tr[3]/td[4]/button[text()='Details']")
     public WebElement editTestCaseDetailsButton;
 
     @FindBy(xpath = "//div//div/div[@role='dialog']")
