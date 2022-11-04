@@ -190,6 +190,3 @@ public class MatrixSteps {
     }
 
 }
-
-    //List<WebElement> allProduct = Driver.findElements(By.xpath("//ul[@id='ListViewInner']/li"));
-//ul/li[2]//div/div//ul[1]/li[5]

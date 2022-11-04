@@ -38,7 +38,7 @@ public class DefectReportPage {
     public WebElement modalOne; //div located at top of file
 
     @FindBy(xpath = "//div[@role='dialog']")
-    public WebElement modalTwo; //div located at bottom of file MOST LIKELY CORRECT
+    public WebElement modalTwo;
 
     @FindBy(xpath = "//div[@role='dialog']/h4")
     public WebElement modalIdDisplay;
