@@ -57,3 +57,19 @@ Feature: Matrix
     And Manager clicks the remove button to remove the test case
     Then The test case is removed
     And Manager sees an alert stating 'Matrix Saved'
+
+    Scenario Outline: Add Non-numerical ID to Matrix
+      Given Manager is on the homepage
+      And Manager clicks on the Matrices link
+      And Manager navigates to the Matrices page
+      When Manager clicks the Show button to view details of a matrix
+      And Manager clicks the edit button to a User Story
+      And Manager inputs a non-numerical ID of a <type>
+      And Manager clicks the add button to add the <type>
+      Then The <type> is not added to the list
+
+
+      Examples:
+      | type      |
+      | defect    |
+      | test case |

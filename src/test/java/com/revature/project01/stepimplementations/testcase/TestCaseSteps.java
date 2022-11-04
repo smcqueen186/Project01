@@ -21,7 +21,7 @@ public class TestCaseSteps {
     }
     @When("Tester types {string} into Description box")
     public void tester_types_into_description_box(String string) {
-        BasicRunner.testCasePage.testCaseDescriptionInput.sendKeys("NEW TEST CASE 1000");
+        BasicRunner.testCasePage.testCaseDescriptionInput.sendKeys("NEW TEST CASE 2000");
     }
     @When("Tester types {string} into Steps box")
     public void tester_types_into_steps_box(String string) {
@@ -31,16 +31,16 @@ public class TestCaseSteps {
     @When("Tester presses the submit button")
     public void tester_presses_the_submit_button() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//form//button[@type='submit']")));
-        //BasicRunner.testCasePage.testCaseSubmitButton.click();
+        BasicRunner.testCasePage.testCaseSubmitButton.click();
     }
     @Then("The test case should appear at the bottom of the table")
     public void the_test_case_should_appear_at_the_bottom_of_the_table() {
         BasicRunner.wait.until(ExpectedConditions
-                .textToBePresentInElementLocated(By.xpath("//table/tbody"), "NEW TEST CASE 1000"));
+                .textToBePresentInElementLocated(By.xpath("//table/tbody"), "NEW TEST CASE 2000"));
     }
     @Then("The test case result should say {string}")
     public void the_test_case_result_should_say(String string) {
-        BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//table//tr[8]/td[3]"), "UNEXECUTED"));
+        BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//table//tr[9]/td[3]"), "UNEXECUTED"));
     }
 
     // VIEW TEST CASE DETAILS
@@ -86,10 +86,16 @@ public class TestCaseSteps {
         Assert.assertEquals(actualUrl, "https://bugcatcher-jasdhir.coe.revaturelabs.com/caseeditor/803");
     }
     @When("The fields are uneditable")
-    public void the_fields_are_uneditable() throws InterruptedException {
+    public boolean the_fields_are_uneditable() throws InterruptedException {
         Thread.sleep(1000);
         boolean editStatus = BasicRunner.caseEditorPage.caseEditorDescriptionInput.isEnabled();
-        boolean isDisabled = editStatus != true;
+        boolean isDisabled = !editStatus;
+        if(isDisabled) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     @When("Tester clicks on the Edit button")
     public void tester_clicks_on_the_edit_button() {
@@ -97,16 +103,23 @@ public class TestCaseSteps {
         BasicRunner.caseEditorPage.caseEditorEditButton.click();
     }
     @When("The test case fields become editable")
-    public void the_test_case_fields_become_editable() {
-        // Manually check that fields are editable
+    public boolean the_test_case_fields_become_editable() {
+        boolean editStatus = BasicRunner.caseEditorPage.caseEditorDescriptionInput.isEnabled();
+        if (editStatus) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
     }
     @When("Tester edits the text in the Description text box")
     public void tester_edits_the_text_in_the_description_text_box() {
-        BasicRunner.caseEditorPage.caseEditorDescriptionInput.sendKeys(" VERY IMPORTANT! ");
+        BasicRunner.caseEditorPage.caseEditorDescriptionInput.sendKeys("VERY IMPORTANT! ");
     }
     @When("Tester edits the text in the Steps text box")
     public void tester_edits_the_text_in_the_steps_text_box() {
-        BasicRunner.caseEditorPage.caseEditorStepsInput.sendKeys("VERY IMPORTANT ");
+        BasicRunner.caseEditorPage.caseEditorStepsInput.sendKeys("VERY IMPORTANT! ");
     }
     @When("Tester clicks on the automated check mark")
     public void tester_clicks_on_the_automated_check_mark() {
@@ -151,9 +164,15 @@ public class TestCaseSteps {
         Assert.assertEquals(actualText, "Test Case has been Saved");
     }
     @Then("The fields become uneditable")
-    public void the_fields_become_uneditable() {
+    public boolean the_fields_become_uneditable() {
         boolean editStatus = BasicRunner.caseEditorPage.caseEditorDescriptionInput.isEnabled();
-        boolean isDisabled = editStatus != true;
+        boolean isDisabled = !editStatus;
+        if(isDisabled) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     @Then("The test result displays FLAKY for 3rd test case")
     public void the_test_result_displays_flaky_for_the_3rd_test_case() {
@@ -228,6 +247,7 @@ public class TestCaseSteps {
        BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//nav/p"), "Welcome Fakey McFakeFace"));
        BasicRunner.wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//div//tbody"), "This is a test case for the thing"));
     }
+
     // RESET TEST CASE
 
     @When("Tester navigates to the 6th test case editor")

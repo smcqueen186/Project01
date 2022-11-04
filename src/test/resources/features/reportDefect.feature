@@ -1,4 +1,4 @@
-@reportdefectpos
+@reportdefect
 
 Feature: Report a Defect Positive
 
@@ -21,6 +21,9 @@ Feature: Report a Defect Positive
     And A modal appears displaying the newly created Defect ID
     And User clicks close
     Then The modal should disappear
+
+
+  # NEGATIVE TESTING
 
   Scenario: Description Too Short
     Given User navigates to the Defect Reporter page
@@ -51,3 +54,14 @@ Feature: Report a Defect Positive
     And User selects Low severity
     And User clicks the Report button
     Then No confirmation box appears
+
+  Scenario: Unrealistic Date Selected
+  Given User navigates to the Defect Reporter page
+    When User selects an unrealistic date
+    And User types in the Description box with "description"
+    And User types in the How to Reproduce box with "steps"
+    And User selects Medium priority
+    And User selects Low severity
+    And User clicks the Report button
+    Then No confirmation box appears
+

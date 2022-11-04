@@ -40,8 +40,8 @@ public class AssignDefectSteps {
     }
 
     // ASSIGN
-    @When("Manager selects a tester from the drop down")
-    public void manager_selects_a_tester_from_the_drop_down() {
+    @When("Manager assigns a tester to the defect")
+    public void manager_assigns_a_tester_to_the_defect() {
         BasicRunner.managerHome.assignDefectInput.sendKeys("ryeGuy");
     }
     @When("Manager clicks the assign button")
@@ -49,9 +49,19 @@ public class AssignDefectSteps {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div/button[text()='Assign']")));
         BasicRunner.managerHome.assignButton.click();
     }
-    @Then("The defect is assigned to the tester")
-    public void the_defect_is_assigned_to_the_tester() {
-        // Tester will manually check their homepage for the newly assigned defect
+    @Then("The defect disappears from the list on the homepage")
+    public void the_defect_disappears_from_the_list_on_the_homepage() {
+        BasicRunner.wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//table//tbody"),"New Defect 06"));
+
+    }
+    @Then("The defect is visible on the tester's homepage")
+    public void the_defect_is_visible_on_the_tester_s_homepage() {
+        driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=20");
+        BasicRunner.loginPage.usernameInput.sendKeys("ryeGuy");
+        BasicRunner.loginPage.passwordInput.sendKeys("coolbeans");
+        BasicRunner.loginPage.loginButton.click();
+        BasicRunner.wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//div/ul[1]"),"New Defect 06"));
+
     }
 
 

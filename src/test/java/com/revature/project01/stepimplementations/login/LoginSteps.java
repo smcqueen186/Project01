@@ -20,7 +20,7 @@ import static com.revature.project01.runners.BasicRunner.*;
 
 public class LoginSteps {
 
-    // Valid Credentials
+    // VALID CREDENTIALS
     @Given("User is at the login page")
     public void user_is_at_the_login_page() {
         BasicRunner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=20");
@@ -84,7 +84,7 @@ public class LoginSteps {
     public void user_sees_greeting_message_displaying_welcome_dracula_fangs() {
         BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//nav//p"), "Welcome Dracula Fangs"));
     }
-    // Invalid Password
+    // INVALID PASSWORD
     @When("User types in a valid username of {string}")
     public void user_types_in_a_valid_username_of_(String username) {
         BasicRunner.loginPage.usernameInput.sendKeys("g8tor");
@@ -100,7 +100,7 @@ public class LoginSteps {
         Assert.assertEquals(actualAlert, "Wrong password for User");
     }
 
-    //Invalid Username
+    //INVALID USERNAME
     @When("User types in an invalid username of {string}")
     public void user_types_in_an_invalid_username_of(String username) {
         BasicRunner.loginPage.usernameInput.sendKeys("invalidUser");
@@ -116,6 +116,7 @@ public class LoginSteps {
         Assert.assertEquals(actualAlert, "Username not found");
     }
 
+    // INVALID CREDENTIALS
     @Then("User should see an alert for invalid username and password stating {string}")
     public void user_should_see_an_alert_for_invalid_username_and_password_stating(String string) {
         BasicRunner.wait.until(ExpectedConditions.alertIsPresent());

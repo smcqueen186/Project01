@@ -105,3 +105,5 @@ public class DefectStatusSteps {
         BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//ul/li[6]/div/span/p/b[2]"), "Shelved"));
     }
 }
+
+
