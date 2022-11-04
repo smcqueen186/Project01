@@ -290,8 +290,14 @@ public class TestCaseSteps {
         Assert.assertEquals(automationStatus, "NO");
     }
     @Then("The fields should be uneditable")
-    public void the_fields_should_be_uneditable() {
+    public boolean the_fields_should_be_uneditable() {
         boolean editStatus = BasicRunner.caseEditorPage.caseEditorDescriptionInput.isEnabled();
-        boolean isDisabled = editStatus != true;
+        boolean isDisabled = !editStatus;
+        if(isDisabled) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

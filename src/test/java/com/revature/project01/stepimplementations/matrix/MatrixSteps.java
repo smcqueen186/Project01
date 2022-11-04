@@ -1,22 +1,18 @@
 package com.revature.project01.stepimplementations.matrix;
 
 import com.revature.project01.runners.BasicRunner;
-import io.cucumber.java.en.But;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import java.time.Duration;
-import java.util.List;
-import java.util.function.Function;
-
 import static com.revature.project01.runners.BasicRunner.*;
+
+
 public class MatrixSteps {
 
     // CREATE MATRIX
@@ -71,7 +67,7 @@ public class MatrixSteps {
     @When("Manager saves the matrix")
     public void manager_saves_the_matrix() throws InterruptedException {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//fieldset/button[1][contains(text(),'Add Requirement')]")));
-        //BasicRunner.managerHome.createMatrixButton.click();
+        BasicRunner.managerHome.createMatrixButton.click();
     }
 
     // ADD DEFECT

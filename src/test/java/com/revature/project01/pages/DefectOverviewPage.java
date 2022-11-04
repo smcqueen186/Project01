@@ -15,7 +15,7 @@ public class DefectOverviewPage {
     public WebElement changeStatus;
 
     @FindBy(xpath = "//ul/li[1]/div/span/p")
-    public WebElement testerDefectSpan; // 6th defect in the list
+    public WebElement testerDefectSpan;
 
     @FindBy(xpath = "//ul/li[1]/div/div//div[1]/span")
     public WebElement changeStatusButton;

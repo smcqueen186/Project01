@@ -1,21 +1,13 @@
 package com.revature.project01.stepimplementations.defects;
 
-import com.revature.project01.pages.ManagerHome;
 import com.revature.project01.runners.BasicRunner;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
-
 import static com.revature.project01.runners.BasicRunner.driver;
-import static com.revature.project01.runners.BasicRunner.managerHome;
+
 
 public class AssignDefectSteps {
 
