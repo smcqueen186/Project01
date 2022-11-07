@@ -16,7 +16,6 @@ import static com.revature.project01.runners.BasicRunner.*;
 public class MatrixSteps {
 
     // CREATE MATRIX
-
     @Given("Manager logs into their homepage")
     public void manager_logs_into_their_homepage() {
         BasicRunner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=20");
@@ -71,7 +70,6 @@ public class MatrixSteps {
     }
 
     // ADD DEFECT
-
     @Given("Manager clicks on the Matrices link")
     public void manager_clicks_on_the_matrices_link() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(text(),'Matrices')]")));
@@ -122,7 +120,6 @@ public class MatrixSteps {
     }
 
     // ADD TEST CASE
-
     @When("Manager inputs an ID number of a test case")
     public void manager_inputs_an_id_number_of_a_test_case() {
         BasicRunner.matricesPage.testCaseIdInput.sendKeys("888");

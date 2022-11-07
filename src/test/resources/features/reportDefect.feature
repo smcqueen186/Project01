@@ -1,6 +1,6 @@
 @reportdefect
 
-Feature: Report a Defect Positive
+Feature: Report a Defect
 
     Background: User Logs in
       Given User is on the login page
@@ -22,9 +22,6 @@ Feature: Report a Defect Positive
     And User clicks close
     Then The modal should disappear
 
-
-  # NEGATIVE TESTING
-
   Scenario: Description Too Short
     Given User navigates to the Defect Reporter page
     When User selects a date
@@ -34,7 +31,6 @@ Feature: Report a Defect Positive
     And User selects Low severity
     And User clicks the Report button
     Then No confirmation box appears
-
 
   Scenario: Steps Too Short
     Given User navigates to the Defect Reporter page

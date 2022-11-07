@@ -44,7 +44,6 @@ public class TestCaseSteps {
     }
 
     // VIEW TEST CASE DETAILS
-
     @When("Tester clicks on Details button of a test case")
     public void tester_clicks_on_details_button_of_a_test_case() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table//tr[6]/td[4]/button[text()='Details']")));
@@ -69,7 +68,6 @@ public class TestCaseSteps {
     }
 
     // EDIT EXISTING CASE
-
     @When("Tester clicks on Details button of 3rd test case")
     public void tester_clicks_on_details_button_of_3rd_test_case() {
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table//tr[3]/td[4]/button[text()='Details']")));
@@ -231,7 +229,6 @@ public class TestCaseSteps {
     }
 
     // TEST CASE VISIBLE ON TESTERS HOMEPAGE
-
     @When("Tester selects ryeGuy from Performed By drop down")
     public void tester_selects_cavalier89_from_performed_by_drop_down() {
         Select performedBy = new Select(driver.findElement(By.xpath("//fieldset[1]//select")));
@@ -249,7 +246,6 @@ public class TestCaseSteps {
     }
 
     // RESET TEST CASE
-
     @When("Tester navigates to the 6th test case editor")
     public void tester_navigates_to_the_6th_test_case_editor() {
         String actualUrl = driver.getCurrentUrl();

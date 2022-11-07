@@ -110,6 +110,7 @@ public class NavigationSteps {
         BasicRunner.managerHome.defectOverviewLink.click();
     }
 
+    // REFRESH PAGE
     @When("Manager clicks the browser refresh button")
     public void manager_clicks_the_browser_refresh_button() throws InterruptedException {
         Thread.sleep(1000);

@@ -108,8 +108,14 @@ public class ReportDefectSteps {
     }
 
     @Then("No confirmation box appears")
-    public void no_confirmation_box_appears() {
-        BasicRunner.wait.until(ExpectedConditions.alertIsPresent());
+    public boolean no_confirmation_box_appears() {
+        try{
+            driver.switchTo().alert();
+            return false;
+        }
+        catch(NoAlertPresentException e) {
+            return true;
+        }
     }
 
     // SHORT STEPS

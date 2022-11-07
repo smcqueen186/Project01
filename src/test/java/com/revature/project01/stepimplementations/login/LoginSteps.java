@@ -19,31 +19,26 @@ public class LoginSteps {
     public void user_is_at_the_login_page() {
         BasicRunner.driver.get("https://bugcatcher-jasdhir.coe.revaturelabs.com/?dev=20");
     }
-
     @When("User types in a valid username of g8tor")
     public void user_types_in_a_valid_username_of_g8tor() {
         BasicRunner.loginPage.usernameInput.sendKeys("g8tor");
     }
-
     @And("User types in a valid password of chomp!")
     public void user_types_in_a_valid_password_of_chomp() {
         BasicRunner.loginPage.passwordInput.sendKeys("chomp!");
     }
-
     @And("User clicks the login button")
     public void user_clicks_the_login_button() {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         BasicRunner.wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Login')]")));
         BasicRunner.loginPage.loginButton.click();
     }
-
     @Then("User should be redirected to the Manager homepage")
     public void user_should_be_redirected_to_the_manager_homepage() {
         BasicRunner.wait.until(ExpectedConditions.textToBe(By.xpath("//h1"), "Manager Home"));
         String actualUrl = driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, "https://bugcatcher-jasdhir.coe.revaturelabs.com/managerhome");
     }
-
     @When("User types in a valid username of ryeGuy")
     public void user_types_in_a_valid_username_of_rye_guy() {
         BasicRunner.loginPage.usernameInput.sendKeys("ryeGuy");
